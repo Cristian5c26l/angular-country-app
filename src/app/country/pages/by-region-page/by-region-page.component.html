@@ -1,3 +1,25 @@
 
-<!--country-list-->
-<country-list [countries]="[]" />
+
+<section class="flex flex-col">
+  <h1 class="text-3xl">Por región</h1>
+  <h2 class="text-xl font-thin">Seleccione una región</h2>
+</section>
+
+<section class="flex flex-row mt-2">
+  @for (region of regions; track $index) {
+    <button
+      [class]="selectedRegion() === region ? 'btn btn-active btn-primary mr-2': 'btn btn-outline mr-2'"
+      (click)="selectedRegion.set(region)"
+      >{{region}}</button>
+    }
+  </section>
+
+  <!--country-list-->
+ <country-list
+  [countries]="countryResource.value() ?? []"
+  [errorMessage]="countryResource.error()"
+  [isEmpty]="countryResource.value()?.length === 0"
+  [isLoading]="countryResource.isLoading()"
+/>
+
+  <!-- [class]="['btn mr-2', activeRegion() === region ? 'btn-active': 'btn-outline']" -->

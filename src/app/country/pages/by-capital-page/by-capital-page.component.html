@@ -11,7 +11,7 @@
 
   <button class="btn btn-primary" (click)="onSearch(txtSearch.value)">Buscar</button>
 </section> -->
-<country-search-input placeholder="Buscar por capital" (newSearch)="query.set($event)"  /><!--(newSearch)="query.set($event)"-->
+<country-search-input placeholder="Buscar por capital" (newSearch)="query.set($event)" [debounceTime]="300" [initialInputValue]="query()" /><!--(newSearch)="query.set($event)"-->
 
 <!--country-list-->
 

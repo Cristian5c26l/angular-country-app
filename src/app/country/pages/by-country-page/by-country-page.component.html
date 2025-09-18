@@ -1,6 +1,6 @@
 
 
-<country-search-input placeholder="Buscar por país" (newSearch)="query.set($event)"/>
+<country-search-input placeholder="Buscar por país" (newSearch)="query.set($event)" [debounceTime]="300" [initialInputValue]="query()" />
 
 <!--country-list-->
 <country-list
